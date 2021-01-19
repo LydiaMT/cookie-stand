@@ -13,3 +13,5 @@ Specified different font colors for all three font usages
 
 References
 Source for `(max - min) + min method` to create random average customer per hour: [see source](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
+
+fdsf

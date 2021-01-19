@@ -1,159 +1,42 @@
 'use strict';
-
 var hoursOfOp = ["6am", "7am", "8am", "9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm"]
 
-// Object: Seattle Cookie Shop
-var seattle = {
-  name: 'Seattle',
-  minCust: 23,
-  maxCust: 65,
-  avgCookieSale: 6.3,
-  avgCust: undefined,
-  randomAvgCust: function randomAvgCust() {
-    this.avgCust = Math.floor(Math.random() * (this.maxCust - this.minCust) + this.minCust); 
-  }, 
-  avgCookiePerHr: undefined,
-  cookiesPerHr: function cookiesPerHr() {
-    this.avgCookiePerHr = Math.floor(this.avgCust * this.avgCookieSale);
-  },
-  hours: [],
-  generateArray: function generateArray() {
-    this.hours = [];
-    var totalCookiesSum = 0;
-    for (var i = 0; i < hoursOfOp.length; i++){
-      this.randomAvgCust();
-      this.cookiesPerHr();
-      this.hours.push(`${hoursOfOp[i]}: ${this.avgCookiePerHr} Cookies`)
-      totalCookiesSum += this.avgCookiePerHr;
-    }
-    this.hours.push(`Total: ${totalCookiesSum} Cookies`);
-  },
-};
-seattle.generateArray();
-
-// Object: Tokyo Cookie Shop
-var tokyo = {
-  name: 'Tokyo',
-  minCust: 3,
-  maxCust: 24,
-  avgCookieSale: 1.2,
-  avgCust: undefined,
-  randomAvgCust: function randomAvgCust() {
-    var randomAvg = Math.floor(Math.random() * (this.maxCust - this.minCust) + this.minCust);
-    this.avgCust = randomAvg; 
-  },
-  avgCookiePerHr: undefined,
-  cookiesPerHr: function cookiesPerHr() {
-    var randomHrCookies = Math.floor(this.avgCust * this.avgCookieSale);
-    this.avgCookiePerHr = randomHrCookies;
-  },
-  hours: [],
-  generateArray: function generateArray() {
-    this.hours = [];
-    var totalCookiesSum = 0;
-    for (var i = 0; i < hoursOfOp.length; i++){
-      this.randomAvgCust();
-      this.cookiesPerHr();
-      this.hours.push(`${hoursOfOp[i]}: ${this.avgCookiePerHr} Cookies`)
-      totalCookiesSum += this.avgCookiePerHr;
-    }
-    this.hours.push(`Total: ${totalCookiesSum} Cookies`);
-  },
+// Fuction for Cookie Shop statistics
+function cookieShopInputs(location, minCustomer, maxCustomer, averageCookieSales){
+  var cookieShop = {
+    name: location,
+    minCust: minCustomer,
+    maxCust: maxCustomer,
+    avgCookieSale: averageCookieSales,
+    avgCust: undefined,
+    randomAvgCust: function randomAvgCust() {
+      this.avgCust = Math.floor(Math.random() * (this.maxCust - this.minCust) + this.minCust); 
+    }, 
+    avgCookiePerHr: undefined,
+    cookiesPerHr: function cookiesPerHr() {
+      this.avgCookiePerHr = Math.floor(this.avgCust * this.avgCookieSale);
+    },
+    hours: [],
+    generateArray: function generateArray() {
+      this.hours = [];
+      var totalCookiesSum = 0;
+      for (var i = 0; i < hoursOfOp.length; i++){
+        this.randomAvgCust();
+        this.cookiesPerHr();
+        this.hours.push(`${hoursOfOp[i]}: ${this.avgCookiePerHr} Cookies`)
+        totalCookiesSum += this.avgCookiePerHr;
+      }
+      this.hours.push(`Total: ${totalCookiesSum} Cookies`);
+    },
+  };
+  cookieShop.generateArray();
+  return cookieShop;
 }
-tokyo.generateArray();
-
-// Object: Dubai Cookie Shop
-var dubai = {
-  name: 'Dubai',
-  minCust: 11,
-  maxCust: 38,
-  avgCookieSale: 3.7,
-  avgCust: undefined,
-  randomAvgCust: function randomAvgCust() {
-    var randomAvg = Math.floor(Math.random() * (this.maxCust - this.minCust) + this.minCust);
-    this.avgCust = randomAvg; 
-  },
-  avgCookiePerHr: undefined,
-  cookiesPerHr: function cookiesPerHr() {
-    var randomHrCookies = Math.floor(this.avgCust * this.avgCookieSale);
-    this.avgCookiePerHr = randomHrCookies;
-  },
-  hours: [],
-  generateArray: function generateArray() {
-    this.hours = [];
-    var totalCookiesSum = 0;
-    for (var i = 0; i < hoursOfOp.length; i++){
-      this.randomAvgCust();
-      this.cookiesPerHr();
-      this.hours.push(`${hoursOfOp[i]}: ${this.avgCookiePerHr} Cookies`)
-      totalCookiesSum += this.avgCookiePerHr;
-    }
-    this.hours.push(`Total: ${totalCookiesSum} Cookies`);
-  },
-}
-dubai.generateArray();
-
-// Object: Paris Cookie Shop
-var paris = {
-  name: 'Paris',
-  minCust:20,
-  maxCust:38,
-  avgCookieSale:2.3,
-  avgCust: undefined,
-  randomAvgCust: function randomAvgCust() {
-    var randomAvg = Math.floor(Math.random() * (this.maxCust - this.minCust) + this.minCust);
-    this.avgCust = randomAvg; 
-  },
-  avgCookiePerHr: undefined,
-  cookiesPerHr: function cookiesPerHr() {
-    var randomHrCookies = Math.floor(this.avgCust * this.avgCookieSale);
-    this.avgCookiePerHr = randomHrCookies;
-  },
-  hours: [],
-  generateArray: function generateArray() {
-    this.hours = [];
-    var totalCookiesSum = 0;
-    for (var i = 0; i < hoursOfOp.length; i++){
-      this.randomAvgCust();
-      this.cookiesPerHr();
-      this.hours.push(`${hoursOfOp[i]}: ${this.avgCookiePerHr} Cookies`)
-      totalCookiesSum += this.avgCookiePerHr;
-    }
-    this.hours.push(`Total: ${totalCookiesSum} Cookies`);
-  },
-}
-paris.generateArray();
-
-// Object: Lima Cookie Shop
-var lima = {
-  name: 'Lima', 
-  minCust:2,
-  maxCust:16,
-  avgCookieSale:4.6,
-  avgCust: undefined,
-  randomAvgCust: function randomAvgCust() {
-    var randomAvg = Math.floor(Math.random() * (this.maxCust - this.minCust) + this.minCust);
-    this.avgCust = randomAvg; 
-  },
-  avgCookiePerHr: undefined,
-  cookiesPerHr: function cookiesPerHr() {
-    var randomHrCookies = Math.floor(this.avgCust * this.avgCookieSale);
-    this.avgCookiePerHr = randomHrCookies;
-  },
-  hours: [],
-  generateArray: function generateArray() {
-    this.hours = [];
-    var totalCookiesSum = 0;
-    for (var i = 0; i < hoursOfOp.length; i++){
-      this.randomAvgCust();
-      this.cookiesPerHr();
-      this.hours.push(`${hoursOfOp[i]}: ${this.avgCookiePerHr} Cookies`)
-      totalCookiesSum += this.avgCookiePerHr;
-    }
-    this.hours.push(`Total: ${totalCookiesSum} Cookies`);
-  },
-}
-lima.generateArray();
+var seattle = cookieShopInputs('Seattle', 23, 65, 6.3);
+var tokyo = cookieShopInputs('Tokyo', 3, 24, 1.2);
+var dubai = cookieShopInputs('Dubai', 11, 38, 3.7);
+var paris = cookieShopInputs('Paris', 20, 38, 2.3);
+var lima = cookieShopInputs('Lima', 2, 16, 4.6);
 
 // DOM mutations
 function populateCookieShops(cookieShop) {
