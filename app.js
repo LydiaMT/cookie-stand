@@ -1,5 +1,5 @@
 'use strict';
-var hoursOfOp = ["", "6am", "7am", "8am", "9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "Daily Location Totals"]
+var hoursOfOp = ["6am", "7am", "8am", "9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm"]
 
 // Object constructor for cookie store inputs
 function CookieShop(location, minCustomer, maxCustomer, averageCookieSales){
@@ -19,7 +19,7 @@ function CookieShop(location, minCustomer, maxCustomer, averageCookieSales){
   this.generateArray = function generateArray() {
     this.hours = [];
     var totalCookiesSum = 0;
-    for (var i = 0; i < hoursOfOp.length-2; i++){
+    for (var i = 0; i < hoursOfOp.length; i++){
       this.randomAvgCust();
       this.cookiesPerHr();
       this.hours.push(this.avgCookiePerHr)
@@ -32,17 +32,20 @@ function CookieShop(location, minCustomer, maxCustomer, averageCookieSales){
 
 // creates random cookie average sales for each hour
 CookieShop.prototype.display = function() {
+  var cookieBody = document.querySelector('table tbody');
+  var row = document.createElement('tr');
   var shopNames = document.createElement('td');
   shopNames.textContent = this.name;
-  var row = document.createElement('tr');
-  cookieBody.appendChild(row);
   row.appendChild(shopNames);
-
-  for (var i = 0; i < hoursOfOp.length-1; i++) {
+  for (var i = 0; i < hoursOfOp.length + 1; i++) {
     var cell = document.createElement('td')
     cell.textContent = this.hours[i];
     row.appendChild(cell);
   }
+  /* var cell = document.createElement('td')
+  cell.textContent = this.hours[i];
+  row.appendChild(cell); */
+  cookieBody.appendChild(row); 
 }
 
 // store inputs for prototype and shop Object constructor
@@ -61,11 +64,16 @@ cookieTable.appendChild(cookieBody);
 var tableHead = document.createElement('thead');
 
 // hours header creation
+var blankSpace = document.createElement('td');
+tableHead.appendChild(blankSpace);
 for (var j = 0; j < hoursOfOp.length; j++) {
   var hoursHeader = document.createElement('th')
   hoursHeader.textContent = hoursOfOp[j];
   tableHead.appendChild(hoursHeader)
 }
+var dailyTotals = document.createElement('th');
+dailyTotals.textContent = 'Daily Location Totals';
+tableHead.appendChild(dailyTotals)
 
 // footer totals creation
 var cookieFoot = document.createElement('tfoot');
@@ -76,7 +84,7 @@ footRow.appendChild(footCell);
 footCell.textContent = 'Totals';
 
 // Cookie sums for all stores each hour
-for (var k = 0; k < hoursOfOp.length-1; k++) {
+for (var k = 0; k < hoursOfOp.length + 1; k++) {
   var foot = document.createElement('td');
   footRow.appendChild(foot);
   foot.textContent = (seattle.hours[k] + tokyo.hours[k] + dubai.hours[k] + paris.hours[k] + lima.hours[k]);
