@@ -42,9 +42,6 @@ CookieShop.prototype.display = function() {
     cell.textContent = this.hours[i];
     row.appendChild(cell);
   }
-  /* var cell = document.createElement('td')
-  cell.textContent = this.hours[i];
-  row.appendChild(cell); */
   cookieBody.appendChild(row); 
 }
 
