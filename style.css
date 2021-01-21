@@ -2,6 +2,7 @@
 /* Sales.html */
 table {
   border: thin black solid;
+  color: #2b2d2f;
 }
 
 th {
@@ -17,10 +18,13 @@ body {
   width: 1000px;
   margin: 0 auto;
   background-color: #7b9098;
+  background-image: url(images/fish.jpg);
+  background-repeat:repeat
 }
 
 main {
   margin: 0 auto;
+  background-color: white;
 }
 
 nav, footer{
@@ -88,9 +92,10 @@ a:hover {
 
 #two{
   background-color: #e45f00;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+}
+
+#intro {
+  width: 950px;
 }
 
 #three{
