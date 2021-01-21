@@ -1,3 +1,5 @@
+
+/* Sales.html */
 table {
   border: thin black solid;
 }
@@ -8,4 +10,114 @@ th {
 
 td {
   border: thin black solid;
+}
+
+/* index.html */
+body {
+  width: 1000px;
+  margin: 0 auto;
+  background-color: #7b9098;
+}
+
+main {
+  margin: 0 auto;
+}
+
+nav, footer{
+  border: thick #2b2d2f solid;
+  height: 50px;
+  width: 990px;
+  background-color: #8b8b22;
+  color: #ffe9ec;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-transform: uppercase;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+nav li, footer li {
+  display: inline;
+  margin: relative;
+  font-size: 24px;
+  
+}
+
+#salmon {
+  width: 480px;
+}
+
+#chinook {
+  width: 400px;
+}
+
+section {
+  border: thick #2b2d2f solid;
+  color: #ffe9ec;
+}
+
+h1{
+  margin: 15px;
+  font-family: cursive;
+  font-size: 50px;
+}
+
+p, h2 {
+  width: 500px;
+  margin: 15px;
+}
+
+a {
+  color: #2b2d2f;
+}
+
+a:hover {
+  color: brown;
+}
+
+#one {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+#two{
+  background-color: #e45f00;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#three{
+  background-color: #b34a00;
+  display: flex;
+  align-items: top;
+  justify-content: space-between;
+}
+
+#family {
+  width: 700px;
+}
+
+#four{
+  background-color: #823600;
+  display: flex;
+  align-items: top;
+  justify-content: space-between;
+}
+
+#salmon-cookie {
+  width: 300px
+}
+
+#five{
+  background-color: #512100;
+  display: flex;
+  align-items: top;
+  justify-content: space-around;
 }

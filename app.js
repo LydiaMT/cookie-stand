@@ -30,7 +30,7 @@ function CookieShop(location, minCustomer, maxCustomer, averageCookieSales){
   this.generateArray();
 }
 
-// creates random cookie average sales for each hour
+// creates random cookie average sales for each hour for table data cells
 CookieShop.prototype.display = function() {
   var cookieBody = document.querySelector('table tbody');
   var row = document.createElement('tr');
