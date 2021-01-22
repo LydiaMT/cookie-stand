@@ -26,19 +26,52 @@ cookieTable.appendChild(tableHead);
 
 // footer totals creation
 var cookieFoot = document.createElement('tfoot');
-var footRow = document.createElement('tr');
-footRow.id = 'newTotals'
-cookieFoot.appendChild(footRow);
 cookieTable.appendChild(cookieFoot);
+
+// Cookie sums for all stores each hour & appends footer
+function populateTable () {
+  // selects table footer
+  var cookieFooter = document.querySelector('table tfoot');
+  // selects foot row id
+  var cookieNewTotals = document.querySelector('#newTotals')
+  // if cookie totals already exist, remove it
+  if (cookieNewTotals){
+    cookieFooter.removeChild(cookieNewTotals)
+  } 
+  // this adds a new footer
+  var newFootRow = document.createElement('tr');
+  newFootRow.id = 'newTotals'
+  var footCell = document.createElement('td');
+  newFootRow.appendChild(footCell);
+  footCell.textContent = 'Totals';
+
+  // this is a dooble loop that adds the totals for all shops (i.e. all 'hours' aka cookie sales by all shops)
+  var grandTotal = 0
+  for (var k = 0; k < hoursOfOp.length; k++) {
+    var foot = document.createElement('td');
+    var shopsTotal = 0;
+    for (var l = 0; l < shops.length; l++){
+      shopsTotal += shops[l].hours[k]
+    }
+    foot.textContent = shopsTotal;
+    newFootRow.appendChild(foot);
+    grandTotal += shopsTotal;
+  } 
+  var grandTotalSale = document.createElement('td');
+  grandTotalSale.textContent = grandTotal;
+  newFootRow.appendChild(grandTotalSale);
+  cookieFoot.appendChild(newFootRow);
+
+  // Displays shops
+  for (var l = 0; l < shops.length; l++){
+    shops[l].display()
+  }
+}
 
 // adds input from user into shops array, which is then pushed into the CookieShop object constructor, and runs through various table creation functions
 var formElement = document.getElementById('cookie-shop-form');
 formElement.addEventListener('submit', function(event) {
   event.preventDefault();
-  console.log(event.target.location.value);
-  console.log(event.target.minCustomer.value);
-  console.log(event.target.maxCustomer.value);
-  console.log(event.target.averageCookieSales.value);
 
   // prevents user from inputting store twice
   var valid = true
@@ -48,18 +81,22 @@ formElement.addEventListener('submit', function(event) {
       alert('These store metrics are already input');
     }
   } 
-  if (!valid) {
-    return;
-  }
- 
+
   var location = event.target.location.value
   var minCustomer = parseInt(event.target.minCustomer.value)
   var maxCustomer = parseInt(event.target.maxCustomer.value)
   var averageCookieSales = parseFloat(event.target.averageCookieSales.value)
   
+  // this avoids the user trying to submit the form with blanke fields
+  if (!valid || !location || !minCustomer || !maxCustomer || !averageCookieSales) {
+    return;
+  }
+  
   var cookieTableConstructor = new CookieShop(location, minCustomer, maxCustomer, averageCookieSales);
   shops.push(cookieTableConstructor);
-  populateTable()
+  populateTable();
+  // clears out input boxes for the user after the click submit! :D
+  formElement.reset();
 });
 
 // Object constructor for cookie store inputs
@@ -71,9 +108,6 @@ function CookieShop(location, minCustomer, maxCustomer, averageCookieSales){
   this.avgCust = undefined;
   this.randomAvgCust =function randomAvgCust() {
     this.avgCust = Math.floor(Math.random() * (this.maxCust - this.minCust) + this.minCust); 
-    console.log(typeof this.minCust)
-    console.log(typeof this.maxCust)
-    console.log(typeof this.avgCust)
   };
   this.avgCookiePerHr = undefined;
   this.cookiesPerHr = function cookiesPerHr() {
@@ -81,13 +115,13 @@ function CookieShop(location, minCustomer, maxCustomer, averageCookieSales){
   };
   this.hours = [];
   this.totalCookiesSum = 0;
-  this.generateArray = function generateArray() {
-    this.hours = [];
-    this.totalCookiesSum = 0;
+  this.generateArray = function generateArray() { 
+    this.hours = []; // this empties the array for every time the function runs
+    this.totalCookiesSum = 0; // this sets totalCookiesSum to zero for every time the function runs
     for (var i = 0; i < hoursOfOp.length; i++){
-      this.randomAvgCust();
-      this.cookiesPerHr();
-      this.hours.push(this.avgCookiePerHr)
+      this.randomAvgCust(); // Added to function so cookiesPerHr is true random each time. Creates new random average customer for each other by invoking the previous function
+      this.cookiesPerHr(); // creates new random cookies per hour by invoking our previously created function
+      this.hours.push(this.avgCookiePerHr) // pushes newly defined avgCookiesPerHr into the hours array
       this.totalCookiesSum += this.avgCookiePerHr;
     }
     // this.hours.push(totalCookiesSum);
@@ -127,42 +161,4 @@ var paris = new CookieShop('Paris', 20, 38, 2.3);
 var lima = new CookieShop('Lima', 2, 16, 4.6);
 shops.push(seattle, tokyo, dubai, paris, lima);
 
-// Cookie sums for all stores each hour & appends footer
-function populateTable () {
-  // selects table footer
-  var cookieFooter = document.querySelector('table tfoot');
-  // selects foot row id
-  var cookieNewTotals = document.querySelector('#newTotals')
-  // if cookie totals already exist, remove it
-  if (cookieNewTotals){
-    cookieFooter.removeChild(cookieNewTotals)
-  } 
-  // this adds a new footer
-  var newFootRow = document.createElement('tr');
-  newFootRow.id = 'newTotals'
-  var footCell = document.createElement('td');
-  newFootRow.appendChild(footCell);
-  footCell.textContent = 'Totals';
-
-  var grandTotal = 0
-  for (var k = 0; k < hoursOfOp.length; k++) {
-    var foot = document.createElement('td');
-    var shopsTotal = 0;
-    for (var l = 0; l < shops.length; l++){
-      shopsTotal += shops[l].hours[k]
-    }
-    foot.textContent = shopsTotal;
-    newFootRow.appendChild(foot);
-    grandTotal += shopsTotal;
-  } 
-  var grandTotalSale = document.createElement('td');
-  grandTotalSale.textContent = grandTotal;
-  newFootRow.appendChild(grandTotalSale);
-  cookieFoot.appendChild(newFootRow);
-
-  // Displays shops
-  for (var l = 0; l < shops.length; l++){
-    shops[l].display()
-  }
-}
 populateTable()

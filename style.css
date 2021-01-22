@@ -76,6 +76,11 @@ p, h2,label {
 
 button {
   margin: 15px;
+  padding: 2px 30px;
+}
+
+button:hover {
+  background-color: salmon;
 }
 
 a {

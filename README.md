@@ -16,3 +16,4 @@ References
 * [CSS Justify Content](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content)
 * [CSS Styling Links](https://www.w3schools.com/css/css_link.asp)
 * [Decimals for numbers inputs in forms](https://stackoverflow.com/questions/34057595/allow-2-decimal-places-in-input-type-number/34057860)
+* [Form reset](https://www.w3schools.com/jsref/met_form_reset.asp)
