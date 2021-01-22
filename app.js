@@ -53,9 +53,9 @@ formElement.addEventListener('submit', function(event) {
   }
  
   var location = event.target.location.value
-  var minCustomer = event.target.minCustomer.value
-  var maxCustomer = event.target.maxCustomer.value
-  var averageCookieSales = event.target.averageCookieSales.value
+  var minCustomer = parseInt(event.target.minCustomer.value)
+  var maxCustomer = parseInt(event.target.maxCustomer.value)
+  var averageCookieSales = parseFloat(event.target.averageCookieSales.value)
   
   var cookieTableConstructor = new CookieShop(location, minCustomer, maxCustomer, averageCookieSales);
   shops.push(cookieTableConstructor);
@@ -71,6 +71,9 @@ function CookieShop(location, minCustomer, maxCustomer, averageCookieSales){
   this.avgCust = undefined;
   this.randomAvgCust =function randomAvgCust() {
     this.avgCust = Math.floor(Math.random() * (this.maxCust - this.minCust) + this.minCust); 
+    console.log(typeof this.minCust)
+    console.log(typeof this.maxCust)
+    console.log(typeof this.avgCust)
   };
   this.avgCookiePerHr = undefined;
   this.cookiesPerHr = function cookiesPerHr() {

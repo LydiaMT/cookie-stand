@@ -15,3 +15,4 @@ References
 * Source for `(max - min) + min method` to create random average customer per hour: [see source](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
 * [CSS Justify Content](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content)
 * [CSS Styling Links](https://www.w3schools.com/css/css_link.asp)
+* [Decimals for numbers inputs in forms](https://stackoverflow.com/questions/34057595/allow-2-decimal-places-in-input-type-number/34057860)
