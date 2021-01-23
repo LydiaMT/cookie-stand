@@ -1,0 +1,171 @@
+
+/* Sales.html */
+label {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+table {
+  border: thick black solid;
+  color: white;
+  margin: 15px 0;
+}
+
+th, td{
+  border: thin #7b9098 solid;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#shops {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* index.html */
+body {
+  width: 1000px;
+  margin: 0 auto;
+  background-color: #7b9098;
+  background-image: url(images/fish.jpg);
+  background-repeat:repeat
+}
+
+main {
+  margin: 0 auto;
+  background-color: white;
+}
+
+nav, footer{
+  border: thick #2b2d2f solid;
+  height: 50px;
+  width: 990px;
+  background-color: #8b8b22;
+  color: #ffe9ec;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-transform: uppercase;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+nav li, footer li {
+  display: inline;
+  margin: relative;
+  font-size: 24px;
+  
+}
+
+#salmon {
+  width: 480px;
+}
+
+#chinook {
+  width: 400px;
+}
+
+section {
+  border: thick #2b2d2f solid;
+  color: #ffe9ec;
+}
+
+h1{
+  margin: 15px;
+  font-family: 'IM Fell English', serif;
+  font-size: 50px;
+  color: #eace6a;
+}
+
+h2 {
+  font-family: Helvetica, sans-serif;
+  color: #D9EAD3;
+}
+
+p, h2,label {
+  width: 500px;
+  margin: 15px;
+}
+
+button {
+  margin: 15px;
+  padding: 2px 30px;
+  border: 2px solid black;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  border-radius: 12px;
+}
+
+button:hover {
+  background-image: url(images/button.jpg);
+  background-size: cover;
+  background-position: center;
+
+}
+
+a {
+  color: #2b2d2f;
+}
+
+a:hover {
+  color: brown;
+}
+
+.one {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.two{
+  background-color: #e45f00;
+}
+
+#intro {
+  width: 950px;
+}
+
+.three{
+  background-color: #b34a00;
+  display: flex;
+  align-items: top;
+  justify-content: space-between;
+}
+
+#family {
+  width: 690px;
+}
+
+.four{
+  background-color: #823600;
+  display: flex;
+  align-items: top;
+  justify-content: space-between;
+}
+
+#salmon-cookie {
+  width: 300px;
+  margin-left: 160px;
+}
+
+#cutter {
+  margin-left: 160px;
+}
+
+.five{
+  background-color: #512100;
+  display: flex;
+  align-items: top;
+  justify-content: space-around;
+}
+
+.right {
+  font-size: 20px;
+  font-style: bold;
+}
+
+.italic {
+  font-style: italic;
+}
