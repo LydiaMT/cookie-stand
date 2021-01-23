@@ -84,7 +84,6 @@ h2 {
 }
 
 p, h2,label {
-  width: 500px;
   margin: 15px;
 }
 
@@ -147,11 +146,11 @@ a:hover {
 
 #salmon-cookie {
   width: 300px;
-  margin-left: 160px;
+  float: right;
 }
 
 #cutter {
-  margin-left: 160px;
+  float: right;
 }
 
 .five{
