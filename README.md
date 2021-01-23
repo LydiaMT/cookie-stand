@@ -17,3 +17,6 @@ References
 * [CSS Styling Links](https://www.w3schools.com/css/css_link.asp)
 * [Decimals for numbers inputs in forms](https://stackoverflow.com/questions/34057595/allow-2-decimal-places-in-input-type-number/34057860)
 * [Form reset](https://www.w3schools.com/jsref/met_form_reset.asp)
+* [Button Boarder Radius](https://www.w3schools.com/howto/howto_css_round_buttons.asp)
+* [Google Font IM Fell English](https://fonts.google.com/specimen/IM+Fell+English?preview.text=Our%20Story&preview.text_type=custom&slant=6&sidebar.open=true&selection.family=IM+Fell+English:ital@1)
+* [Special Bullets](https://www.toptal.com/designers/htmlarrows/symbols/)

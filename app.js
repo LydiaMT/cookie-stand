@@ -12,8 +12,9 @@ cookieTable.appendChild(cookieBody);
 var tableHead = document.createElement('thead');
 
 // hours header creation
-var blankSpace = document.createElement('td');
-tableHead.appendChild(blankSpace);
+var shopsHeaderCell = document.createElement('th');
+shopsHeaderCell.textContent = 'Shops' // adds the word 'Shops' to the added th cell
+tableHead.appendChild(shopsHeaderCell);
 for (var j = 0; j < hoursOfOp.length; j++) {
   var hoursHeader = document.createElement('th')
   hoursHeader.textContent = hoursOfOp[j];

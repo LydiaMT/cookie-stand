@@ -1,16 +1,24 @@
 
 /* Sales.html */
+label {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 table {
-  border: thin black solid;
-  color: #2b2d2f;
+  border: thick black solid;
+  color: white;
+  margin: 15px 0;
 }
 
-th {
-  border: thin black solid;
+th, td{
+  border: thin #7b9098 solid;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-td {
-  border: thin black solid;
+#shops {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* index.html */
@@ -65,8 +73,14 @@ section {
 
 h1{
   margin: 15px;
-  font-family: cursive;
+  font-family: 'IM Fell English', serif;
   font-size: 50px;
+  color: #eace6a;
+}
+
+h2 {
+  font-family: Helvetica, sans-serif;
+  color: #D9EAD3;
 }
 
 p, h2,label {
@@ -77,12 +91,17 @@ p, h2,label {
 button {
   margin: 15px;
   padding: 2px 30px;
+  border: 2px solid black;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  border-radius: 12px;
 }
 
 button:hover {
   background-image: url(images/button.jpg);
   background-size: cover;
   background-position: center;
+
 }
 
 a {
@@ -93,15 +112,14 @@ a:hover {
   color: brown;
 }
 
-#one {
+.one {
   background-color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
-#two{
+.two{
   background-color: #e45f00;
 }
 
@@ -109,7 +127,7 @@ a:hover {
   width: 950px;
 }
 
-#three{
+.three{
   background-color: #b34a00;
   display: flex;
   align-items: top;
@@ -117,10 +135,10 @@ a:hover {
 }
 
 #family {
-  width: 700px;
+  width: 690px;
 }
 
-#four{
+.four{
   background-color: #823600;
   display: flex;
   align-items: top;
@@ -128,12 +146,26 @@ a:hover {
 }
 
 #salmon-cookie {
-  width: 300px
+  width: 300px;
+  margin-left: 160px;
 }
 
-#five{
+#cutter {
+  margin-left: 160px;
+}
+
+.five{
   background-color: #512100;
   display: flex;
   align-items: top;
   justify-content: space-around;
+}
+
+.right {
+  font-size: 20px;
+  font-style: bold;
+}
+
+.italic {
+  font-style: italic;
 }
